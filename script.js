@@ -1,62 +1,54 @@
-let todo = [];
 
-let inp = prompt(
-`Choose an operation:
-1. Add Task
-2. View Tasks
-3. Delete Task
-4. Quit`
-);
+let b1 = document.querySelector("#btn1")
+let ul = document.querySelector("ul")
+let ip = document.querySelector("input")
 
-while (true) {
+function addtask() {
+  let item = document.createElement("li")
+    item.innerText = ip.value
 
-    if (inp === "1") {
-        let task = prompt("Enter Task to put in Todo List");
-        todo.push(task);
-        console.log("Added Successfully");
+    let del = document.createElement("button")
+    del.classList.add("delete")
+    del.innerHTML = "Delete"
+
+    if(ip.value.trim() === "") alert("Please Enter Valid Task");
+    else{
+    ul.appendChild(item)
+    item.appendChild(del)
+    ip.value =""
     }
-
-    else if (inp === "2") {
-
-        console.log("******** TODO LIST ********");
-
-        if (todo.length === 0) {
-            console.log("No tasks available");
-        } else {
-            for (let i = 0; i < todo.length; i++) {
-                console.log(i, todo[i]);
-            }
-        }
-
-        console.log("***************************");
-    }
-
-    else if (inp === "3") {
-
-        let idx = Number(prompt("Enter index to delete"));
-
-        if (idx < 0 || idx >= todo.length) {
-            alert("Please enter a valid index");
-        } else {
-            todo.splice(idx, 1);
-            console.log("Deleted Successfully");
-        }
-    }
-
-    else if (inp === "4") {
-        console.log("App Quit Successfully");
-        break;
-    }
-
-    else {
-        console.log("Invalid Input");
-    }
-
-    inp = prompt(
-`Choose an operation:
-1. Add Task
-2. View Tasks
-3. Delete Task
-4. Quit`
-    );
+    del.addEventListener("click",function(){
+        item.remove()
+    })
 }
+
+b1.addEventListener("click", addtask);
+
+ip.addEventListener("keydown",function(event){
+    if(event.key === "Enter"){
+        addtask()
+    }
+})
+
+let but = document.querySelector(".b")
+
+
+
+let i=0
+
+let body = document.querySelector("body")
+
+function dm(){
+    if(i%2==0){
+        but.innerHTML = "DarkMode"
+        body.style.backgroundColor = "black"
+    }
+    else{
+        but.innerHTML = "Light Mode"
+        body.style.backgroundColor = "White"
+    }
+
+    i++;
+}
+
+but.addEventListener("click",dm)
