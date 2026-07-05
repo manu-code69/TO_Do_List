@@ -1,0 +1,60 @@
+.delete{
+      margin-left: 30%;
+}
+ul {
+    list-style-type: none; /* Removes the default bullet points */
+    padding: 0;
+    max-width: 400px;      /* Sets a clean container width */
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between; /* Pushes text to the left, button to the right */
+    align-items: center;            /* Perfectly centers them vertically */
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #f4f4f4;      /* Gives a subtle background block */
+    border-radius: 5px;
+}
+
+/* Styled Delete Button */
+ul li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+ul li button:hover {
+    background-color: #cc0000; /* Darkens on hover */
+}
+
+.b{
+    /* Position the button relative to the browser window */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensures it stays above all other content */
+
+    /* Make it a perfect circle */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* 50% turns squares into circles */
+
+    /* Typography and layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+
+    /* Styling aesthetics */
+    background-color: rgb(237, 237, 43);
+    color: rgb(240, 85, 240);
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Adds depth */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
